@@ -1,0 +1,18 @@
+{
+    "rows": 60,
+    "columns": [
+        "date",
+        "category",
+        "revenue",
+        "orders",
+        "ad_spend"
+    ],
+    "duplicates": 0,
+    "missing_values": {
+        "date": 0,
+        "category": 0,
+        "revenue": 0,
+        "orders": 0,
+        "ad_spend": 60
+    }
+}

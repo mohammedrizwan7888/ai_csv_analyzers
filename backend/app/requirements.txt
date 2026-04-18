@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pandas
+openai
+python-multipart
+sqlalchemy
+pymysql
+python-dotenv
+matplotlib
+seaborn
+reportlab
