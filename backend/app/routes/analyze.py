@@ -17,10 +17,10 @@ def analyze_csv(file_id: str):
 
     file_path = os.path.join(UPLOAD_DIR, matched_files[0])
 
-    # ✅ Read CSV safely
+    # Read CSV safely
     df = pd.read_csv(file_path)
 
-    # ✅ Safe JSON serializable stats
+    # Safe JSON serializable stats
     stats = df.describe(include="all").fillna("").astype(str).to_dict()
 
     summary = {
