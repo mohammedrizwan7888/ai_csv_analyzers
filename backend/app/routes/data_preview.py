@@ -4,7 +4,7 @@ import os
 
 router = APIRouter()
 
-# ✅ Absolute upload folder path
+#  Absolute upload folder path
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 UPLOAD_DIR = os.path.join(BASE_DIR, "uploads")
 
@@ -12,11 +12,11 @@ UPLOAD_DIR = os.path.join(BASE_DIR, "uploads")
 @router.post("/api/analyze/{file_id}")
 def analyze_csv(file_id: str):
     try:
-        # ✅ Check upload folder exists
+        #  Check upload folder exists
         if not os.path.exists(UPLOAD_DIR):
             raise HTTPException(status_code=404, detail="Upload folder not found")
 
-        # ✅ Find uploaded file by UUID start
+        #  Find uploaded file by UUID start
         files = os.listdir(UPLOAD_DIR)
         matched_files = [f for f in files if f.startswith(file_id)]
 
@@ -25,10 +25,10 @@ def analyze_csv(file_id: str):
 
         file_path = os.path.join(UPLOAD_DIR, matched_files[0])
 
-        # ✅ Read CSV safely
+        # Read CSV safely
         df = pd.read_csv(file_path)
 
-        # ✅ Generate safe stats
+        #  Generate safe stats
         stats = df.describe(include="all").fillna("").astype(str).to_dict()
 
         summary = {
